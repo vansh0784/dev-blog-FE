@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { TokenService } from '../../core/services/token.service';
-import { Apollo } from 'apollo-angular';
-import { LOGIN_MUTATION, SIGNUP_MUTATION } from './graphql/auth.mutation';
+import { TokenService } from '../core/services/token.service';
+import { LOGIN_MUTATION, SIGNUP_MUTATION } from '../features/auth/graphql/auth.mutation';
 import { map, tap } from 'rxjs';
+import { Apollo } from 'apollo-angular';
 
 interface ILoginInput {
     email: string;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { GET_HOME_ARTICLES } from '../home/graphql/home.queries';
+import { GET_HOME_ARTICLES } from '../features/home/graphql/home.queries';
 
 @Injectable({
     providedIn: 'root',

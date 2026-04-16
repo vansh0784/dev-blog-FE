@@ -4,5 +4,5 @@ import { routes } from './app.routes';
 import { graphqlProvider } from './graphql.provider';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideBrowserGlobalErrorListeners(), provideRouter(routes), ...graphqlProvider],
+    providers: [provideBrowserGlobalErrorListeners(), provideRouter(routes), ...graphqlProvider],
 };
