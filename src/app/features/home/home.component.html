@@ -1,0 +1,18 @@
+<div class="space-y-4 p-6">
+  <div
+    *ngFor="let article of (articles$ | async)?.data?.getArticles"
+    class="rounded-xl border p-4 shadow-sm"
+  >
+    <h2 class="text-xl font-semibold">
+      {{ article.title }}
+    </h2>
+
+    <p class="text-sm text-gray-500">
+      By {{ article.author.userName }}
+    </p>
+
+    <p class="mt-2 text-gray-600">
+      {{ article.shortDescription }}
+    </p>
+  </div>
+</div>
