@@ -1,16 +1,14 @@
-<div class="footer-1 bg-[var(--surface)] text-xs flex items-center justify-between px-12 py-8">
-    <p class="text-[var(--muted)]/60">&#xA9; {{ year }} DEVBLOG. THE DIGITAL CURATOR</p>
-
-    <ul class="text-[var(--muted)]/60 gap-4 cursor-pointer sm:flex hidden items-center justify-between">
+<div class="footer-1 bg-[var(--surface)] text-xs flex flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-12 py-6 sm:py-8">
+    <p class="text-[var(--muted)]/60 text-center sm:text-left">© {{ year }} DEVBLOG. THE DIGITAL CURATOR</p>
+    <ul class="text-[var(--muted)]/60 flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-3 sm:gap-4">
         <li>
-            <a routerLink="/privacy-policy" class="hover:text-[var(--text)] transition"> PRIVACY POLICY </a>
+            <a routerLink="/privacy-policy" class="hover:text-[var(--text)] transition whitespace-nowrap"> PRIVACY POLICY </a>
         </li>
         <li>
-            <a routerLink="/terms-and-conditions" class="hover:text-[var(--text)] transition"> TERMS AND CONDITIONS </a>
+            <a routerLink="/terms-and-conditions" class="hover:text-[var(--text)] transition whitespace-nowrap"> TERMS AND CONDITIONS </a>
         </li>
         <li>
-            <a routerLink="/security" class="hover:text-[var(--text)] transition"> SECURITY </a>
+            <a routerLink="/security" class="hover:text-[var(--text)] transition whitespace-nowrap"> SECURITY </a>
         </li>
-        <li class="hover:text-[var(--text)] transition">SYSTEM STATUS</li>
     </ul>
 </div>

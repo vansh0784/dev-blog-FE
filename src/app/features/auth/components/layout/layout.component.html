@@ -1,10 +1,11 @@
-<div class="bg-[var(--bg)]/80">
-    <div class="bg-[var(--bg)] px-12 py-8">
+<div class="bg-[var(--bg)]/99">
+    <div class="bg-[var(--bg)] px-4 sm:px-12 py-6 sm:py-8">
         <div class="header-1 flex justify-between items-center">
-            <h1 class="text-xl font-medium text-[var(--text)]">DevBlog</h1>
-            <ul class="text-[var(--text)]/60 gap-4 text-sm cursor-pointer sm:flex hidden items-center justify-between">
-                <li class="hover:text-[var(--text)] transition">Guidelines</li>
-                <li class="hover:text-[var(--text)] transition">About</li>
+            <h1 class="text-lg sm:text-xl font-medium text-[var(--text)]">DevBlog</h1>
+
+            <ul class="text-[var(--text)]/60 gap-4 text-sm cursor-pointer flex items-center">
+                <li class="hover:text-[var(--text)] hidden sm:block transition">Guidelines</li>
+                <li class="hover:text-[var(--text)] hidden sm:block transition">About</li>
 
                 <li (click)="toggleTheme()" class="cursor-pointer hover:scale-110 transition">
                     <i class="fa-regular" [ngClass]="currentTheme === 'dark' ? 'fa-moon' : 'fa-sun'"></i>
@@ -12,17 +13,20 @@
             </ul>
         </div>
     </div>
-    <div class="grid grid-cols-2 p-14">
-        <div class="Banner-1 relative overflow-hidden p-16 bg-[var(--surface)]/80">
-            <div class="absolute bottom-0 left-0 w-40 h-40 bg-blue-400/5 blur-3xl rounded-full"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 p-4 sm:p-14 gap-6 sm:gap-0">
+        <div class="Banner-1 hidden sm:block relative overflow-hidden p-16 bg-[var(--surface)]/80 rounded-bl-xl rounded-tl-xl">
+            <div class="absolute bottom-0 left-0 w-40 h-40 bg-blue-400/5 blur-3xl"></div>
+
             <div class="relative flex flex-col justify-between h-full">
                 <div class="flex flex-col gap-6">
                     <p class="text-[var(--primary)] text-[10px]">THE DIGITAL CURATOR</p>
+
                     <div>
                         <p class="font-medium text-7xl text-[var(--text)]">Where Code</p>
                         <p class="font-medium text-6xl text-[var(--text)]">becomes</p>
                         <p class="italic text-5xl text-[var(--muted)]">literature.</p>
                     </div>
+
                     <p class="text-[var(--muted)] text-sm line-clamp-3 min-h-5">
                         Join a curated community of developers <br />
                         sharing deep technical insights <br />
@@ -40,36 +44,35 @@
                 </div>
             </div>
         </div>
-        <div class="Form-1 gap-8 bg-[var(--bg)] px-21 py-16 flex flex-col">
-            <div>
-                <h1 class="text-2xl font-medium pb-1 text-[var(--text)]">
-                    <i *ngIf="formType === 'signup'" class="fa-solid fa-handshake"></i>
-                    {{ formType === 'login' ? 'Welcome Back' : 'Welcome' }}
-                </h1>
+        <div class="Form-1 gap-6 sm:gap-8 bg-[var(--bg)] px-4 sm:px-10 lg:px-21 py-8 sm:py-16 flex flex-col sm:rounded-br-xl sm:rounded-tr-xl">
+            <h1 class="text-xl sm:text-2xl font-medium text-[var(--text)]">
+                <i *ngIf="formType === 'signup'" class="fa-solid fa-handshake mr-1"></i>
+                {{ formType === 'login' ? 'Welcome Back' : 'Welcome' }}
+            </h1>
+            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                <button class="bg-[var(--surface)] text-[var(--text)] py-3 rounded-xl text-xs hover:opacity-90 transition whitespace-nowrap"><i class="fab fa-github"></i> GITHUB</button>
+                <button class="bg-[var(--surface)] text-[var(--text)] py-3 rounded-xl text-xs hover:opacity-90 transition whitespace-nowrap"><i class="fa-brands fa-google"></i> GOOGLE</button>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <button class="bg-[var(--surface)] text-[var(--text)] py-3 px-12 rounded-xl text-xs"><i class="fab fa-github text-md"></i> GITHUB</button>
-                <button class="bg-[var(--surface)] text-[var(--text)] py-3 px-12 rounded-xl text-xs"><i class="fa-brands fa-google text-md"></i> GOOGLE</button>
-            </div>
-            <div class="flex items-center justify-between">
-                <p class="h-0.5 w-1/3 bg-[var(--muted)]/30"></p>
-                <p class="text-xs text-[var(--muted)]">OR CONTINUE WITH EMAIL</p>
-                <p class="h-0.5 w-1/3 bg-[var(--muted)]/30"></p>
+            <div class="flex items-center gap-3">
+                <div class="flex-1 h-[1px] bg-[var(--muted)]/30"></div>
+
+                <p class="text-xs text-[var(--muted)] whitespace-nowrap">OR CONTINUE WITH EMAIL</p>
+
+                <div class="flex-1 h-[1px] bg-[var(--muted)]/30"></div>
             </div>
             <app-login (submitForm)="loginSubmit.emit($event)" *ngIf="formType === 'login'"></app-login>
 
             <app-signup (submitForm)="signupSubmit.emit($event)" *ngIf="formType === 'signup'"></app-signup>
-            <p *ngIf="formType === 'login'" class="text-center text-sm">
-                <span class="italic text-[var(--muted)]">New here? </span>
-                <span class="text-[var(--primary)] cursor-pointer" (click)="switchView('signup')"> Join the Community </span>
-            </p>
+            <p class="text-center text-xs sm:text-sm">
+                <span class="italic text-[var(--muted)]">
+                    {{ formType === 'login' ? 'New here?' : 'Already Joined?' }}
+                </span>
 
-            <p *ngIf="formType === 'signup'" class="text-center text-sm">
-                <span class="italic text-[var(--muted)]">Already Joined? </span>
-                <span class="text-[var(--primary)] cursor-pointer" (click)="switchView('login')"> Please, Sign In at Curator </span>
+                <span class="text-[var(--primary)] cursor-pointer ml-1 hover:underline" (click)="switchView(formType === 'login' ? 'signup' : 'login')">
+                    {{ formType === 'login' ? 'Join the Community' : 'Sign In' }}
+                </span>
             </p>
         </div>
     </div>
-
     <app-footer></app-footer>
 </div>
