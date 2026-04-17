@@ -1,30 +1,43 @@
 <form class="flex gap-6 flex-col" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- USERNAME -->
     <div>
         <div class="flex items-center justify-between">
-            <p class="text-xs pb-1">USERNAME</p>
+            <p class="text-xs pb-1 text-[var(--text)]">USERNAME</p>
+
             <div class="text-xs text-red-500" *ngIf="form.get('userName')?.invalid && form.get('userName')?.touched">
-                <small *ngIf="form.get('userName')?.errors?.['required']">* Username is required</small>
+                <small *ngIf="form.get('userName')?.errors?.['required']"> * Username is required </small>
             </div>
         </div>
-        <input formControlName="userName" type="text" class="text px-5 py-4 text-[#434653]/40 bg-[#F6F3F2] w-full rounded-xl outline-none" placeholder="curator@developer.com" />
+
+        <input formControlName="userName" type="text" class="px-5 py-4 text-[var(--text)] bg-[var(--surface)] w-full rounded-xl outline-none placeholder:text-[var(--muted)]/60 focus:ring-2 focus:ring-[var(--primary)]/40" placeholder="curator_username" />
     </div>
+
+    <!-- EMAIL -->
     <div>
         <div class="flex items-center justify-between">
-            <p class="text-xs pb-1">EMAIL ADDRESS</p>
+            <p class="text-xs pb-1 text-[var(--text)]">EMAIL ADDRESS</p>
+
             <div class="text-xs text-red-500" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
-                <small *ngIf="form.get('email')?.errors?.['required']">* Email is required</small>
+                <small *ngIf="form.get('email')?.errors?.['required']"> * Email is required </small>
             </div>
         </div>
-        <input formControlName="email" type="text" class="text px-5 py-4 text-[#434653]/40 bg-[#F6F3F2] w-full rounded-xl outline-none" placeholder="curator@developer.com" />
+
+        <input formControlName="email" type="text" class="px-5 py-4 text-[var(--text)] bg-[var(--surface)] w-full rounded-xl outline-none placeholder:text-[var(--muted)]/60 focus:ring-2 focus:ring-[var(--primary)]/40" placeholder="curator@developer.com" />
     </div>
+
+    <!-- PASSWORD -->
     <div>
         <div class="flex items-center justify-between">
-            <p class="text-xs pb-1">PASSWORD</p>
+            <p class="text-xs pb-1 text-[var(--text)]">PASSWORD</p>
+
             <div class="text-xs text-red-500" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
-                <small *ngIf="form.get('password')?.errors?.['required']">* Password is required</small>
+                <small *ngIf="form.get('password')?.errors?.['required']"> * Password is required </small>
             </div>
         </div>
-        <input formControlName="password" type="text" class="text px-5 py-4 text-[#434653]/40 bg-[#F6F3F2] w-full rounded-xl outline-none" placeholder="---------" />
+
+        <input formControlName="password" type="password" class="px-5 py-4 text-[var(--text)] bg-[var(--surface)] w-full rounded-xl outline-none placeholder:text-[var(--muted)]/60 focus:ring-2 focus:ring-[var(--primary)]/40" placeholder="••••••••" />
     </div>
-    <button type="submit" class="bg-[#0A42A8] text-center w-full py-4 rounded-xl text-white">Sign Up</button>
+
+    <!-- BUTTON -->
+    <button type="submit" class="bg-[var(--primary)] text-[var(--bg)] text-center w-full py-4 rounded-xl font-medium hover:opacity-90 transition">Sign Up</button>
 </form>

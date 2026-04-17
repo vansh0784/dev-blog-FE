@@ -2,3 +2,20 @@
 
 @import 'tailwindcss';
 
+
+/* LIGHT THEME (default) */
+:root {
+  --bg: #FCF9F8;
+  --surface: #F6F3F2;
+  --text: #1B1B1C;
+  --muted: #434653;
+  --primary: #0A42A8;
+}
+
+.dark {
+  --bg: #0b0b0c;        /* near pure black */
+  --surface: #141415;   /* slightly elevated surface */
+  --text: #f5f5f5;      /* soft white (better than pure white) */
+  --muted: #a1a1aa;     /* neutral gray */
+  --primary: #e5e5e5;   /* neutral highlight instead of blue */
+}
