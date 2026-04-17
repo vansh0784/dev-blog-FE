@@ -1,29 +1,31 @@
 <div class="bg-[#FCF9F8]/80">
-    <div class="bg-[#FCF9F8]/80 px-12 py-8">
+    <div class="bg-[#FCF9F8] px-12 py-8">
         <div class="header-1 flex justify-between items-center">
-            <h1 class="text-lg font-semibold text-[#1B1B1C]">DevBlog</h1>
+            <h1 class="text-xl font-medium text-[#1B1B1C]">DevBlog</h1>
             <ul class="text-[#1B1B1C]/60 gap-4 text-sm cursor-pointer sm:flex hidden items-center justify-between">
                 <li>Guidelines</li>
                 <li>About</li>
             </ul>
         </div>
     </div>
-    <div class="grid grid-cols-2 px-6 py-50">
-        <div class="Banner-1 relative overflow-hidden p-16 bg-[#F6F3F2]">
+    <div class="grid grid-cols-2 p-14">
+        <div class="Banner-1 relative overflow-hidden p-16 bg-[#F6F3F2]/80">
             <div class="absolute bottom-0 left-0 w-40 h-40 bg-blue-400/5 blur-3xl rounded-full"></div>
-            <div class="relative flex flex-col items-center">
+            <div class="relative flex flex-col justify-between h-full">
                 <div class="flex flex-col gap-6">
                     <p class="text-[#0A42A8] text-[10px]">THE DIGITAL CURATOR</p>
 
                     <div>
-                        <p class="font-bold text-3xl">Where Code</p>
-                        <p class="font-bold text-3xl">becomes</p>
-                        <p class="italic text-2xl text-[#515F74]">literature.</p>
+                        <p class="font-medium text-7xl">Where Code</p>
+                        <p class="font-medium text-6xl">becomes</p>
+                        <p class="italic text-5xl text-[#515F74]">literature.</p>
                     </div>
 
-                    <p class="text-[#434653] text-sm line-clamp-3 min-h-18">Join a curated community of developers sharing deep technical insights through beautiful prose.</p>
+                    <p class="text-[#434653] text-sm line-clamp-3 min-h-5">
+                        Join a curated community of developers <br />
+                        sharing deep technical insights <br />through beautiful prose.
+                    </p>
                 </div>
-
                 <div class="pt-12">
                     <div class="flex items-center justify-center bg-[#C4C6D5]/10 gap-2 p-6 rounded-2xl">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH87TKQrWcl19xly2VNs0CjBzy8eaKNM-ZpA&s" class="object-contain h-13 rounded-full" alt="Sarah Chen" />
@@ -35,9 +37,30 @@
                 </div>
             </div>
         </div>
-        <div class="Form-1 bg-white px-21 py-16">
-            <h1 class="text-2xl font-bold">Welcome Back</h1>
-            <h5 class="text-lg">Enter your details to blow your mind.</h5>
+        <div class="Form-1 gap-8 bg-white px-21 py-16 flex flex-col">
+            <div class="">
+                <h1 class="text-2xl font-medium pb-1">Welcome Back</h1>
+                <h5 class="text-sm text-[#434653]">Enter your details to access your curator.</h5>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="bg-[#F6F3F2] py-3 px-12 rounded-xl text-xs" mat-raised-button color="primary"><i class="fab fa-github text-md"></i> GITHUB</button>
+                <button class="bg-[#F6F3F2] py-3 px-12 rounded-xl text-xs" mat-raised-button color="primary"><i class="fa-brands fa-google text-md"></i> GOOGLE</button>
+            </div>
+            <div class="flex items-center justify-between">
+                <p class="h-0.5 w-1/3 bg-[#C4C6D5]/30"></p>
+                <p class="text-xs">OR CONTINUE WITH EMAIL</p>
+                <p class="h-0.5 w-1/3 bg-[#C4C6D5]/30"></p>
+            </div>
+            <app-login *ngIf="formType === 'login'"></app-login>
+            <app-signup *ngIf="formType === 'signup'"></app-signup>
+            <p *ngIf="formType === 'login'" class="text-center text-sm">
+                <span class="italic text-[#434653]">New here? </span>
+                <span class="text-[#0A42A8] cursor-pointer" (click)="switchView('signup')"> Join the Community </span>
+            </p>
+            <p *ngIf="formType === 'signup'" class="text-center text-sm">
+                <span class="italic text-[#434653]">Already Joined? </span>
+                <span class="text-[#0A42A8] cursor-pointer" (click)="switchView('login')"> Please, Sign In at Curator </span>
+            </p>
         </div>
     </div>
     <div class="footer-1 bg-[#F6F3F2] text-xs flex items-center justify-between px-12 py-8">

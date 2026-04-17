@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { AuthLayoutComponent } from '../../components/layout/layout.component';
 
 @Component({
@@ -9,5 +9,9 @@ import { AuthLayoutComponent } from '../../components/layout/layout.component';
 })
 export class AuthPageComponent {
     title = 'Auth';
-    formType = signal<'Login' | 'Signup'>('Login');
+    formType = signal<'login' | 'signup'>('login');
+
+    switchView(view: 'login' | 'signup') {
+        this.formType.set(view);
+    }
 }
