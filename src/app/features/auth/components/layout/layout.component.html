@@ -51,8 +51,8 @@
                 <p class="text-xs">OR CONTINUE WITH EMAIL</p>
                 <p class="h-0.5 w-1/3 bg-[#C4C6D5]/30"></p>
             </div>
-            <app-login *ngIf="formType === 'login'"></app-login>
-            <app-signup *ngIf="formType === 'signup'"></app-signup>
+            <app-login (submitForm)="loginSubmit.emit($event)" *ngIf="formType === 'login'"></app-login>
+            <app-signup (submitForm)="signupSubmit.emit($event)" *ngIf="formType === 'signup'"></app-signup>
             <p *ngIf="formType === 'login'" class="text-center text-sm">
                 <span class="italic text-[#434653]">New here? </span>
                 <span class="text-[#0A42A8] cursor-pointer" (click)="switchView('signup')"> Join the Community </span>

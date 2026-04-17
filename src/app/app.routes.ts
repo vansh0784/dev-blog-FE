@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { GuestGuard } from './core/guards/guest.guard';
 import { HomeComponent } from './features/home/home.component';
 import { AuthPageComponent } from './features/auth/pages/auth-page/auth.page.component';
+import { AuthGuard } from './core/guards/auth.guards';
 
 export const routes: Routes = [
     {
@@ -20,7 +21,7 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        canActivate: [GuestGuard],
+        canActivate: [AuthGuard],
     },
 
     //   {

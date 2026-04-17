@@ -3,24 +3,25 @@ import { TokenService } from '../core/services/token.service';
 import { LOGIN_MUTATION, SIGNUP_MUTATION } from '../features/auth/graphql/auth.mutation';
 import { map, tap } from 'rxjs';
 import { Apollo } from 'apollo-angular';
+import { Router } from '@angular/router';
 
-interface ILoginInput {
+export interface SignInInput {
     email: string;
     password: string;
 }
 
-interface ISignupInput {
+export interface ISignupInput {
     userName: string;
     password: string;
     email: string;
 }
 
-interface AuthResponse {
+export interface AuthResponse {
     token: string;
     user: IUserType;
 }
 
-interface IUserType {
+export interface IUserType {
     id: string;
     email: string;
     userName: string;
@@ -33,17 +34,19 @@ export class AuthService {
     constructor(
         private readonly tokenService: TokenService,
         private readonly apollo: Apollo,
+        private readonly router: Router,
     ) {}
 
     isAuthenticated(): boolean {
         return !this.tokenService.isTokenExpired();
     }
 
-    Login(input: ILoginInput) {
+    Login(input: SignInInput) {
         return this.apollo.mutate<{ login: AuthResponse }>({ mutation: LOGIN_MUTATION, variables: { input } }).pipe(
             map((res) => res.data!.login),
             tap((res) => {
                 this.tokenService.setAccessToken(res.token);
+                this.router.navigate(['/home']);
             }),
         );
     }

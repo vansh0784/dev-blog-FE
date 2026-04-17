@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
     getAccessToken(): string | null {
-        return localStorage.getItem('token');
+        return localStorage.getItem('accessToken');
     }
 
     decodeAccessToken(): any | null {
@@ -14,7 +14,9 @@ export class TokenService {
 
         try {
             const payload = token.split('.')[1];
-            return JSON.parse(atob(payload));
+            const decoded = JSON.parse(atob(payload));
+            console.log(decoded);
+            return decoded;
         } catch {
             return null;
         }

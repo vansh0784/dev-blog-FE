@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, EventEmitter, inject, Output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class SignupComponent {
     private fb = inject(FormBuilder);
-    formValue = signal({ userName: '', email: '', password: '' });
+    @Output() submitForm = new EventEmitter<any>();
     form = this.fb.group({
         userName: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
@@ -19,7 +19,6 @@ export class SignupComponent {
 
     onSubmit() {
         if (this.form.invalid) return;
-        console.log(this.form.value);
-        console.log(this.formValue());
+        this.submitForm.emit(this.form.value);
     }
 }

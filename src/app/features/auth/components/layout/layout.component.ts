@@ -12,6 +12,8 @@ import { SignupComponent } from '../signup-form/signup.component';
 export class AuthLayoutComponent {
     @Input() formType: 'login' | 'signup' = 'login';
     @Output() formTypeChange = new EventEmitter<'login' | 'signup'>();
+    @Output() loginSubmit = new EventEmitter<any>();
+    @Output() signupSubmit = new EventEmitter<any>();
 
     switchView(view: 'login' | 'signup') {
         this.formTypeChange.emit(view);
