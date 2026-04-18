@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
-import { AuthLayoutComponent } from '../../components/layout/layout.component';
+import { AuthLayoutComponent } from '../../components/auth-layout/auth-layout.component';
 import { ILoginInput, ISignupInput } from '../../models/auth.input.model';
 import { AuthService } from '../../../../services/auth.service';
 

@@ -9,7 +9,7 @@ import { ThemeService } from '../../../../services/theme.service';
     selector: 'auth-layout',
     standalone: true,
     imports: [CommonModule, SignupComponent, LoginComponent, FooterComponent],
-    templateUrl: './layout.component.html',
+    templateUrl: './auth-layout.component.html',
 })
 export class AuthLayoutComponent implements OnInit {
     constructor(private theme: ThemeService) {}

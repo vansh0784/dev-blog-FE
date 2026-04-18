@@ -1,0 +1,26 @@
+<div class="flex bg-[var(--bg)] items-center justify-between px-4 sm:px-8 py-4">
+    <div class="flex items-center gap-6 sm:gap-10">
+        <h1 class="text-lg sm:text-xl text-[var(--text)] font-medium">
+            {{ app_name }}
+        </h1>
+        <ul class="hidden sm:flex gap-6 text-sm font-medium items-center text-[var(--text)]/80">
+            <li>
+                <a routerLink="/home" class="hover:text-[#0A42A8] hover:underline transition"> Explore </a>
+            </li>
+            <li>
+                <a routerLink="/writers" class="hover:text-[#0A42A8] hover:underline transition"> Writers </a>
+            </li>
+            <li>
+                <a routerLink="/stack" class="hover:text-[#0A42A8] hover:underline transition"> Stack </a>
+            </li>
+        </ul>
+    </div>
+    <div class="flex items-center gap-4 text-[var(--text)]/60">
+        <button (click)="toggleTheme()" class="cursor-pointer hover:scale-110 transition">
+            <i class="fa-regular text-lg" [ngClass]="(theme$ | async) === 'dark' ? 'fa-moon' : 'fa-sun'"></i>
+        </button>
+        <button *ngIf="!isLoggedIn" routerLink="/auth" class="text-sm px-4 py-2 rounded-lg bg-(--surface)/80 border border-(--text)/10 text-(--text)">Login</button>
+
+        <div *ngIf="isLoggedIn" class="w-8 h-8 rounded-full bg-[var(--surface)] flex items-center justify-center text-sm cursor-pointer">U</div>
+    </div>
+</div>

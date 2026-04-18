@@ -2,7 +2,7 @@ name: Deploy DEV-BLOG-FE (Angular) to Firebase Hosting
 
 on:
     push:
-        branches: 
+        branches:
             - main
 
 jobs:
